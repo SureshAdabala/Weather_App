@@ -1,5 +1,5 @@
 // script.js (module)
-const API_KEY = '7a4bee2195msh942db397a84fb3ap14f92ajsn0e612748c38b';
+const API_KEY = 'e22555f4e7msh4fd5574373923a3p147e8ejsn05be712a252a';
 const API_HOST = 'open-weather13.p.rapidapi.com';
 
 // DOM Elements
