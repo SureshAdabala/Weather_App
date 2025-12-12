@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Weather Finder</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <!-- Fonts: Outfit (Modern, Geometric) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Icons: FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+
+  <div class="main-split-layout">
+
+    <!-- Panel 1: Map (Left on Desktop, Top on Mobile) -->
+    <div class="map-panel">
+      <!-- Search Floating over Map -->
+      <section class="search-section">
+        <div class="input-group">
+          <i class="fa-solid fa-magnifying-glass search-icon-left"></i>
+          <input id="city" type="text" placeholder="Search city..." autocomplete="off">
+          <button id="searchBtn" class="btn-neon">
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </section>
+
+      <div id="map"></div>
+    </div>
+
+    <!-- Panel 2: Weather Sidebar (Right on Desktop, Bottom on Mobile) -->
+    <aside class="sidebar-panel">
+
+      <!-- Error/Status -->
+      <div id="status" class="status-msg"></div>
+
+      <!-- Main Result Card -->
+      <section id="weather-card" class="glass-card hidden">
+        <div class="card-body">
+
+          <!-- Top: Location & Time -->
+          <div class="card-header">
+            <h2 id="location">--</h2>
+            <span id="date-time" class="time-badge">--</span>
+          </div>
+
+          <!-- Middle: Icon & Condition -->
+          <div class="weather-visual">
+            <div class="icon-container">
+              <img id="main-icon" src="" alt="Weather Icon" class="main-icon hidden" />
+            </div>
+            <p id="condition" class="condition-text">--</p>
+          </div>
+
+          <!-- Statistics Grid -->
+          <div class="stats-grid">
+
+            <!-- Temp -->
+            <div class="stat-item">
+              <div class="stat-icon-box">
+                <i class="fa-solid fa-temperature-half"></i>
+              </div>
+              <div class="stat-info">
+                <span class="stat-label">Temp</span>
+                <span id="temp" class="stat-value">--</span>
+              </div>
+            </div>
+
+            <!-- Feels Like -->
+            <div class="stat-item">
+              <div class="stat-icon-box">
+                <i class="fa-solid fa-person-rays"></i>
+              </div>
+              <div class="stat-info">
+                <span class="stat-label">Feels</span>
+                <span id="feels" class="stat-value">--</span>
+              </div>
+            </div>
+
+            <!-- Humidity -->
+            <div class="stat-item">
+              <div class="stat-icon-box">
+                <i class="fa-solid fa-droplet"></i>
+              </div>
+              <div class="stat-info">
+                <span class="stat-label">Humidity</span>
+                <span id="humidity" class="stat-value">--</span>
+              </div>
+            </div>
+
+            <!-- Wind -->
+            <div class="stat-item">
+              <div class="stat-icon-box">
+                <i class="fa-solid fa-wind"></i>
+              </div>
+              <div class="stat-info">
+                <span class="stat-label">Wind</span>
+                <span id="wind" class="stat-value">--</span>
+              </div>
+            </div>
+
+          </div><!-- End Stats Grid -->
+        </div>
+      </section>
+
+      <!-- Placeholder message if hidden -->
+      <div class="placeholder-msg">
+        <p>Select a location on the map</p>
+      </div>
+
+
+
+    </aside>
+
+  </div>
+
+  <script src="script.js" type="module"></script>
+</body>
+
+</html>
